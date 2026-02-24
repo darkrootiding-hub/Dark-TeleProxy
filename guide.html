@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>DarkRoot AI · Where & How (52A guide)</title>
+  <!-- same libs for consistent look -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #0a0e17;
+      font-family: 'Inter', sans-serif;
+      color: #f0f4ff;
+      line-height: 1.6;
+      padding: 24px 20px;
+      background-image: 
+        radial-gradient(circle at 10% 30%, rgba(139, 92, 246, 0.18) 0%, transparent 40%),
+        radial-gradient(circle at 90% 70%, rgba(0, 212, 255, 0.12) 0%, transparent 40%);
+    }
+    .guide-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: 48px;
+      padding: 40px 40px;
+      box-shadow: 0 30px 60px -15px #000000cc;
+    }
+
+    /* back to app link */
+    .back-bar {
+      display: flex;
+      margin-bottom: 30px;
+    }
+    .back-link {
+      background: rgba(139, 92, 246, 0.2);
+      border: 1.5px solid #8b5cf6;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.25s;
+    }
+    .back-link:hover {
+      background: #8b5cf6;
+      transform: translateX(-6px);
+      box-shadow: 0 10px 30px #8b5cf6;
+    }
+
+    /* header */
+    .guide-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px 30px;
+      margin-bottom: 30px;
+    }
+    .logo-area {
+      background: #1a253c;
+      border-radius: 100px;
+      padding: 14px 28px;
+      border: 1px solid #4f6390;
+    }
+    .logo-area span {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #b48aff, #ec4899, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .version-badge {
+      background: #202e48;
+      color: #b9d0ff;
+      border: 1px solid #4e6b9e;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+    .header-desc {
+      font-size: 1.3rem;
+      color: #cbd9ff;
+      border-left: 3px solid #8b5cf6;
+      padding-left: 20px;
+      flex: 1;
+    }
+
+    /* ========== WELCOME REPLICA (exact from 52A) ========== */
+    .welcome-block {
+      background: #0e1a2a;
+      border-radius: 38px;
+      padding: 30px 34px;
+      margin: 30px 0 40px;
+      border: 1px solid #3f5683;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+    }
+    .ai-message-bubble {
+      flex: 2;
+      min-width: 280px;
+      background: #14233e;
+      border-radius: 32px;
+      padding: 28px;
+      border-left: 8px solid #00d8a7;
+    }
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 16px;
+    }
+    .online-badge {
+      background: #00d8a7;
+      color: #000;
+      font-weight: 800;
+      padding: 5px 18px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+    .cmd-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 14px;
+    }
+    .chip {
+      background: #1b2c48;
+      border: 1px solid #5d73af;
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+    }
+    .plus-block {
+      flex: 0 0 200px;
+      background: #132237;
+      border: 2px dashed #8b5cf6;
+      border-radius: 28px;
+      padding: 28px 16px;
+      text-align: center;
+    }
+    .plus-block i {
+      font-size: 4rem;
+      color: #8b5cf6;
+    }
+
+    /* section title */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 45px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title span {
+      background: #8b5cf6;
+      width: 8px;
+      height: 42px;
+      border-radius: 8px;
+    }
+
+    /* ========== WHERE / HOW CARDS (the main request) ========== */
+    .where-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin: 30px 0;
+    }
+    .where-card {
+      background: #111e32;
+      border: 1px solid #33496f;
+      border-radius: 32px;
+      padding: 28px 24px;
+      transition: 0.2s ease;
+      box-shadow: 0 16px 24px -12px black;
+    }
+    .where-card:hover {
+      border-color: #8b5cf6;
+      background: #16263f;
+      transform: translateY(-5px);
+    }
+    .card-icon {
+      font-size: 2.4rem;
+      background: linear-gradient(145deg, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 14px;
+    }
+    .card-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #e2ecff;
+      margin-bottom: 12px;
+    }
+    .where-loc {
+      background: #1f314f;
+      border-radius: 50px;
+      padding: 8px 16px;
+      display: inline-block;
+      font-size: 0.85rem;
+      font-family: 'Fira Code', monospace;
+      border: 1px solid #5d79b0;
+      margin: 12px 0 18px;
+    }
+    .where-loc i {
+      color: #f472b6;
+      margin-right: 8px;
+    }
+    .how-list {
+      list-style: none;
+    }
+    .how-list li {
+      margin: 12px 0;
+      display: flex;
+      gap: 12px;
+      color: #cfe1ff;
+    }
+    .how-list li i {
+      color: #00d8a7;
+      width: 20px;
+      font-size: 1.1rem;
+    }
+    .cmd-tag {
+      background: #1e2f4b;
+      border-radius: 40px;
+      padding: 2px 12px;
+      font-family: 'Fira Code', monospace;
+      border: 1px solid #6a5aa0;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin: 2px 4px;
+    }
+
+    /* mockup gallery */
+    .mockup-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin: 50px 0;
+      justify-content: center;
+    }
+    .mock-item {
+      flex: 1 1 260px;
+      max-width: 320px;
+      background: #0e1b30;
+      border: 1px solid #3a5080;
+      border-radius: 36px;
+      overflow: hidden;
+    }
+    .mock-header {
+      background: #1c2d4e;
+      padding: 16px;
+      font-weight: 600;
+      border-bottom: 1px solid #3d5585;
+    }
+    .mock-body {
+      padding: 20px;
+      min-height: 150px;
+    }
+    .mock-caption {
+      background: #121f38;
+      padding: 18px;
+      color: #b7d0ff;
+    }
+    .mock-caption strong {
+      color: #f472b6;
+    }
+
+    /* step‑by‑step */
+    .step-guide {
+      background: #0d1a2c;
+      border-radius: 40px;
+      padding: 38px;
+      margin: 40px 0;
+    }
+    .step-item {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 38px;
+    }
+    .step-num {
+      background: #8b5cf6;
+      width: 60px;
+      height: 60px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      box-shadow: 0 0 25px #8b5cf6;
+    }
+    .step-content h3 {
+      font-size: 1.8rem;
+      color: #deeaff;
+    }
+    .step-content p {
+      color: #c0d6ff;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 60px;
+      padding-top: 25px;
+      border-top: 1px solid #2f4670;
+      display: flex;
+      justify-content: space-between;
+      color: #93abdf;
+    }
+    .darkroot-gradient {
+      background: linear-gradient(145deg, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    hr {
+      border: 0.5px solid #2e4570;
+      margin: 40px 0;
+    }
+    @media (max-width:700px) {
+      .guide-container { padding: 25px 18px; }
+      .step-item { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="guide-container">
+  <!-- back to 52A (main app) -->
+  <div class="back-bar">
+    <a href="index.html" onclick="alert('back to main app');" class="back-link"><i class="fas fa-arrow-left"></i> Back to DarkRoot AI</a>
+  </div>
+
+  <!-- header -->
+  <div class="guide-header">
+    <div class="logo-area"><span><i class="fas fa-robot"></i> DarkRoot AI</span></div>
+    <div class="version-badge"><i class="fas fa-code-branch"></i> v6.0 · guide (52A)</div>
+    <div class="header-desc">where everything is + how to use it</div>
+  </div>
+
+  <!-- WELCOME BLOCK (exact copy of your 52A png) -->
+  <div class="welcome-block">
+    <div class="ai-message-bubble">
+      <div class="title-row">
+        <i class="fas fa-infinity" style="color:#8b5cf6; font-size:2rem;"></i>
+        <span class="online-badge"><i class="fas fa-check-circle"></i> DARKROOT AI ONLINE</span>
+      </div>
+      <div style="color:#eef4ff;">
+        <strong>Advanced AI assistant ready</strong> for coding, cybersecurity, technical problem-solving.<br>
+        <span style="color:#b3ccff;">Features: gesture‑controlled IDE, legal hacking courses, DarkRoot AI (default), voice input, cloud sync.</span>
+      </div>
+      <div class="cmd-chips">
+        <span class="chip"><i class="fas fa-shield"></i> /hack</span>
+        <span class="chip"><i class="fas fa-code"></i> /code</span>
+        <span class="chip"><i class="fas fa-brain"></i> /darkroot</span>
+        <span class="chip"><i class="fas fa-graduation-cap"></i> /study</span>
+        <span class="chip"><i class="fas fa-question"></i> /help</span>
+      </div>
+      <div style="margin-top:16px; background:#1b2a46; border-radius:16px; padding:12px; border-left:6px solid #00d8a7;">
+        <i class="fas fa-check-circle" style="color:#00d8a7;"></i> <strong>DarkRoot AI enabled by default</strong> – 128K context
+      </div>
+    </div>
+    <div class="plus-block">
+      <i class="fas fa-plus-circle"></i>
+      <div style="font-size:2rem; font-weight:bold;">+ New</div>
+      <div style="color:#9cb2e5;">start fresh chat</div>
+    </div>
+  </div>
+
+  <!-- ========== WHERE & HOW GRID (core of the request) ========== -->
+  <div class="section-title"><span></span> 📍 Where things are + how to use them</div>
+  <div class="where-grid">
+    <!-- 1. CHAT & INPUT -->
+    <div class="where-card">
+      <div class="card-icon"><i class="fas fa-comment-dots"></i></div>
+      <div class="card-title">Chat & input</div>
+      <div class="where-loc"><i class="fas fa-map-pin"></i> main center + bottom bar</div>
+      <ul class="how-list">
+        <li><i class="fas fa-caret-right"></i> Type message, <span class="cmd-tag">Enter</span> send / <span class="cmd-tag">Shift+Enter</span> new line</li>
+        <li><i class="fas fa-caret-right"></i> <strong>Voice:</strong> click <i class="fas fa-microphone"></i> mic, speak – auto‑sends after pause</li>
+        <li><i class="fas fa-caret-right"></i> Prompt suggestions appear when chat is empty – click to fill</li>
+        <li><i class="fas fa-caret-right"></i> Code blocks have <span class="cmd-tag">copy</span> + <span class="cmd-tag">run</span> (opens IDE)</li>
+      </ul>
+    </div>
+
+    <!-- 2. SIDEBAR -->
+    <div class="where-card">
+      <div class="card-icon"><i class="fas fa-bars"></i></div>
+      <div class="card-title">Sidebar</div>
+      <div class="where-loc"><i class="fas fa-map-pin"></i> click ☰ top‑left</div>
+      <ul class="how-list">
+        <li><i class="fas fa-caret-right"></i> <strong>Recent sessions:</strong> click any to resume, trash to delete</li>
+        <li><i class="fas fa-caret-right"></i> <strong>Quick actions:</strong> Study hacking, Feedback, Prompt manager, Activate DarkRoot AI</li>
+        <li><i class="fas fa-caret-right"></i> <strong>Dynamic buttons</strong> (featured actions) – click to insert prompt</li>
+        <li><i class="fas fa-caret-right"></i> <strong>Auth:</strong> login/logout at bottom</li>
+      </ul>
+    </div>
+
+    <!-- 3. IDE / EDITOR -->
+    <div class="where-card">
+      <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+      <div class="card-title">IDE (code editor)</div>
+      <div class="where-loc"><i class="fas fa-map-pin"></i> header <i class="fas fa-code"></i> button / from code blocks</div>
+      <ul class="how-list">
+        <li><i class="fas fa-caret-right"></i> Languages: HTML, Python, C, C++, JS</li>
+        <li><i class="fas fa-caret-right"></i> <strong>Gestures:</strong> pinch to zoom font, two‑finger scroll</li>
+        <li><i class="fas fa-caret-right"></i> Shortcuts: <span class="cmd-tag">Ctrl+Enter</span> run, <span class="cmd-tag">Ctrl+S</span> save</li>
+        <li><i class="fas fa-caret-right"></i> Console + stdin for Python/C</li>
+      </ul>
+    </div>
+
+    <!-- 4. LEGAL HACKING -->
+    <div class="where-card">
+      <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+      <div class="card-title">Legal hacking</div>
+      <div class="where-loc"><i class="fas fa-map-pin"></i> sidebar “Study Legal Hacking” or /study</div>
+      <ul class="how-list">
+        <li><i class="fas fa-caret-right"></i> Categories: basics, network, web, crypto, forensics, tools</li>
+        <li><i class="fas fa-caret-right"></i> Click card → AI switches to ethical teaching mode</li>
+        <li><i class="fas fa-caret-right"></i> Always legal/defensive focus</li>
+      </ul>
+    </div>
+
+    <!-- 5. SETTINGS & CUSTOMIZATION -->
+    <div class="where-card">
+      <div class="card-icon"><i class="fas fa-cog"></i></div>
+      <div class="card-title">Settings</div>
+      <div class="where-loc"><i class="fas fa-map-pin"></i> header <i class="fas fa-cog"></i> button</div>
+      <ul class="how-list">
+        <li><i class="fas fa-caret-right"></i> AI model selector (DarkRoot AI default, Gemini, Llama, Mistral…)</li>
+        <li><i class="fas fa-caret-right"></i> Theme, music player, response length, custom prompts</li>
+        <li><i class="fas fa-caret-right"></i> Clear session memory</li>
+      </ul>
+    </div>
+
+    <!-- 6. AUTH / CLOUD -->
+    <div class="where-card">
+      <div class="card-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+      <div class="card-title">Auth & cloud</div>
+      <div class="where-loc"><i class="fas fa-map-pin"></i> sidebar bottom + auth modal</div>
+      <ul class="how-list">
+        <li><i class="fas fa-caret-right"></i> Login/signup with email, “Remember me” for auto‑login</li>
+        <li><i class="fas fa-caret-right"></i> Sessions sync to Firestore after login</li>
+        <li><i class="fas fa-caret-right"></i> Guest mode uses localStorage</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MOCKUP GALLERY (shows exact elements from 52A) -->
+  <div class="section-title"><span></span> 📸 Feature snapshots (as in your PNG)</div>
+  <div class="mockup-row">
+    <div class="mock-item">
+      <div class="mock-header"><i class="fas fa-comment"></i> main chat + suggestions</div>
+      <div class="mock-body">
+        <div style="background:#18263f; border-radius:16px; padding:12px;">💬 DarkRoot AI online …</div>
+        <div style="margin-top:12px; background:#1d2b47; border-radius:12px; padding:8px; color:#abc1f0;">
+          <i class="fas fa-chevron-right"></i> prompt suggestions box (empty chat)
+        </div>
+      </div>
+      <div class="mock-caption"><strong>where:</strong> above input · <strong>how:</strong> click any to fill input</div>
+    </div>
+    <div class="mock-item">
+      <div class="mock-header"><i class="fas fa-bars"></i> sidebar</div>
+      <div class="mock-body">
+        <div><i class="fas fa-history"></i> Recent: SQLi deep dive</div>
+        <div style="background:#1f3150; border-radius:12px; margin-top:10px; padding:10px;">⚡ Quick actions</div>
+      </div>
+      <div class="mock-caption"><strong>where:</strong> left panel · <strong>how:</strong> navigate, delete, activate</div>
+    </div>
+    <div class="mock-item">
+      <div class="mock-header"><i class="fas fa-code"></i> IDE gesture</div>
+      <div class="mock-body">
+        <div style="background:#0f1d33; font-family: monospace; padding:8px;">def hello(): ...</div>
+        <div style="display:flex; gap:8px; margin-top:8px;"><span class="cmd-tag">run</span> <span class="cmd-tag">copy</span></div>
+      </div>
+      <div class="mock-caption"><strong>how:</strong> pinch to zoom, two‑finger scroll</div>
+    </div>
+  </div>
+
+  <!-- DETAILED STEP BY STEP (10 steps) -->
+  <div class="step-guide">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content"><h3>🗣️ Send messages & commands</h3><p><strong>Where:</strong> bottom input. <strong>How:</strong> type, Enter sends. Use slash commands anywhere: /hack, /code, /darkroot, /study, /clear, /help. Voice: tap mic, speak.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content"><h3>📁 Sidebar & sessions</h3><p><strong>Where:</strong> ☰ top‑left. <strong>How:</strong> click any session to resume; trash to delete. Quick actions: study, feedback, prompt manager, activate DarkRoot AI.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content"><h3>⚡ IDE & code execution</h3><p><strong>Where:</strong> header Editor or from code block “Run”. <strong>How:</strong> choose language, pinch to zoom, Ctrl+Enter to run. For Python/C, stdin appears. Output in console.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-content"><h3>🔐 Legal hacking courses</h3><p><strong>Where:</strong> sidebar /study. <strong>How:</strong> pick a card → AI switches to ethical teaching mode.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-content"><h3>⚙️ Settings</h3><p><strong>Where:</strong> header cog. <strong>How:</strong> change model, theme, music, response length, manage prompts, clear memory.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">6</div>
+      <div class="step-content"><h3>🔑 Authentication</h3><p><strong>Where:</strong> sidebar bottom. <strong>How:</strong> login/signup, remember me for auto‑login. Sessions sync to cloud.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">7</div>
+      <div class="step-content"><h3>📌 Prompt manager & dynamic buttons</h3><p><strong>Where:</strong> sidebar “Prompt Ideas”. <strong>How:</strong> add custom prompts; they appear in list. Dynamic buttons (featured) insert predefined prompts.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">8</div>
+      <div class="step-content"><h3>💬 Feedback & export</h3><p><strong>Where:</strong> sidebar “Send Feedback” and “Export Chat”. <strong>How:</strong> choose type, optional message → submit. Export saves .txt of conversation.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">9</div>
+      <div class="step-content"><h3>🎵 Music & ambient</h3><p><strong>Where:</strong> inside settings modal. <strong>How:</strong> play/pause, next/previous. Tracks: king.mp3, lion.mp3, Samjhawan, etc.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">10</div>
+      <div class="step-content"><h3>🌐 Offline & internet</h3><p><strong>Where:</strong> top center notification. <strong>How:</strong> shows “No Internet” when offline; auto‑reconnects and reloads Firebase when back online.</p></div>
+    </div>
+  </div>
+
+  <!-- command summary + quick ref -->
+  <hr>
+  <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: space-between;">
+    <div style="background:#101f38; border-radius: 28px; padding: 28px; flex:1;">
+      <h3><i class="fas fa-terminal" style="color:#8b5cf6;"></i> essential commands</h3>
+      <table style="width:100%; border-collapse: collapse; margin-top:16px;">
+        <tr><th style="text-align:left;">command</th><th>action</th></tr>
+        <tr><td>/hack</td><td>cybersecurity mode</td></tr>
+        <tr><td>/code</td><td>programming mode</td></tr>
+        <tr><td>/darkroot</td><td>activate DarkRoot AI (default)</td></tr>
+        <tr><td>/study</td><td>open hacking courses</td></tr>
+        <tr><td>/clear</td><td>reset conversation</td></tr>
+        <tr><td>/help</td><td>show all</td></tr>
+      </table>
+    </div>
+    <div style="background:#101f38; border-radius: 28px; padding: 28px; flex:1;">
+      <h3><i class="fas fa-cog" style="color:#ec4899;"></i> quick settings</h3>
+      <ul style="color:#c0d6ff;">
+        <li><i class="fas fa-angle-right"></i> Default AI: DarkRoot AI (128k)</li>
+        <li><i class="fas fa-angle-right"></i> Gemini, Llama, Mistral… available</li>
+        <li><i class="fas fa-angle-right"></i> Response length: 2048–8192</li>
+        <li><i class="fas fa-angle-right"></i> Theme toggle, music player</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DARKROOT AI default promo -->
+  <div style="margin: 50px 0; background: linear-gradient(145deg, #14243e, #0f1d34); border-radius: 40px; padding: 30px; border:1px solid #8b5cf6;">
+    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+      <i class="fas fa-crown" style="font-size: 3.5rem; color: #fbbf24;"></i>
+      <div>
+        <h2 style="font-size: 2rem; background: linear-gradient(145deg, #b894ff, #ff99cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">DarkRoot AI — default engine</h2>
+        <p style="color: #cfddff;">128k context, optimized for technical tasks, cybersecurity, and coding. It's active unless you switch in settings.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer with back link again -->
+  <div class="footer">
+    <div><span class="darkroot-gradient">DarkRoot AI v6</span> · where+how guide (52A)</div>
+    <div><a href="#" onclick="alert('back to main app');" style="color:#8b5cf6; text-decoration:none;"><i class="fas fa-arrow-left"></i> return to app</a></div>
+    <div><i class="fas fa-image"></i> matches 52A style</div>
+  </div>
+</div>
+<script>console.log('52A guide ready — everything located + explained');</script>
+</body>
+</html>
